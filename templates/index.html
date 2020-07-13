@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>My home page</title>
+    </head>
+
+    <body>
+        <p><a href="/">Home</a> | <a href="/signup">Signup</a></p>
+
+        <h1>Welcome to my homepage!</h1>
+
+        {% if user %}
+            <h2>{{user.username}}</h2>
+        {% endif %}
+
+        <p>I am very proud of it :)</p>
+    </body>
+
+</html>
