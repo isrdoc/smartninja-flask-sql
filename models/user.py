@@ -1,5 +1,6 @@
 from models.settings import db
 from datetime import datetime
+import uuid
 
 
 class User(db.Model):
@@ -8,3 +9,17 @@ class User(db.Model):
     password_hash = db.Column(db.String)
     session_token = db.Column(db.String)
     created = db.Column(db.DateTime, default=datetime.utcnow)
+
+    @classmethod
+    def create(cls, username, password_hash):
+        session_token = str(uuid.uuid4())
+
+        user = cls(
+            username=username,
+            password_hash=password_hash,
+            session_token = session_token
+        )
+        db.add(user)
+        db.commit()
+
+        return user

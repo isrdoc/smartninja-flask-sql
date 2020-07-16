@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-    <head>
-        <meta charset="UTF-8">
-        <title>My home page</title>
-    </head>
+{% block title %}My home page{% endblock title %}
 
-    <body>
-        <p><a href="/">Home</a> | <a href="/signup">Signup</a></p>
+{% block content %}
+    <h1>Welcome to my homepage!</h1>
 
-        <h1>Welcome to my homepage!</h1>
+    {% if user %}
+        <h2>{{user.username}}</h2>
+    {% endif %}
 
-        {% if user %}
-            <h2>{{user.username}}</h2>
-        {% endif %}
-
-        <p>I am very proud of it :)</p>
-    </body>
-
-</html>
+    <p>I am very proud of it :)</p>
+{% endblock content %}
