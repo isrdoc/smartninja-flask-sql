@@ -17,3 +17,15 @@ class Topic(db.Model):
         db.commit()
 
         return topic
+
+    @classmethod
+    def update(cls, topic_id, title, text):
+        topic = db.query(Topic).get(int(topic_id))
+
+        topic.title = title
+        topic.text = text
+
+        db.add(topic)
+        db.commit()
+
+        return topic
