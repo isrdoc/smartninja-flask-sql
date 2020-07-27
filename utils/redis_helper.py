@@ -5,9 +5,9 @@ import uuid
 redis = smartninja_redis.from_url(os.environ.get("REDIS_URL"))
 
 
-def set_csrf_token(user):
+def set_csrf_token(username):
     csrf_token = str(uuid.uuid4())
-    redis.set(name=csrf_token, value=user.username)
+    redis.set(name=csrf_token, value=username)
 
     return csrf_token
 

@@ -19,6 +19,12 @@ class Topic(db.Model):
         return topic
 
     @classmethod
+    def read(cls, topic_id):
+        topic = db.query(Topic).get(int(topic_id))
+
+        return topic
+
+    @classmethod
     def update(cls, topic_id, title, text):
         topic = db.query(Topic).get(int(topic_id))
 

@@ -5,6 +5,7 @@ from models.topic import Topic
 
 from handlers.auth import auth_handlers
 from handlers.topic import topic_handlers
+from handlers.comment import comment_handlers
 
 from utils.auth_helper import user_from_session_token
 
@@ -12,6 +13,7 @@ app = Flask(__name__)
 
 app.register_blueprint(auth_handlers)
 app.register_blueprint(topic_handlers)
+app.register_blueprint(comment_handlers)
 
 db.create_all()
 
