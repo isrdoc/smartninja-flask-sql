@@ -1,3 +1,4 @@
 Flask
 sqla-wrapper
 smartninja-redis
+gunicorn
