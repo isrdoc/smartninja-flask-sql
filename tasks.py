@@ -63,5 +63,5 @@ def send_email_task(receiver_email, subject, text):
     response_data = json.loads(response.text)
 
     if response_data["errors"]:
-        print(response_data["errors"][0].message)
+        print(response_data["errors"][0]["message"])
         raise Exception("Error in SendGrid")
