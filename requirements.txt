@@ -3,3 +3,4 @@ sqla-wrapper
 smartninja-redis
 gunicorn
 requests
+huey

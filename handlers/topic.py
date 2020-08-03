@@ -1,4 +1,5 @@
 from flask import render_template, request, redirect, url_for, Blueprint
+import os
 
 from models.settings import db
 from models.topic import Topic
@@ -40,6 +41,12 @@ def topic_details(topic_id):
     topic = Topic.read(topic_id)
     comments = Comment.read_all(topic)
     csrf_token = set_csrf_token(username=user.username)
+
+    # START test background tasks (TODO: delete this code later)
+    if os.getenv('REDIS_URL'):
+        from tasks import get_random_num
+        get_random_num()
+    # END test background tasks
 
     return render_template(
         "topic/details.html",
