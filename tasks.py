@@ -22,7 +22,7 @@ def get_random_num():
         raise Exception("Error in the worker... :(")
 
 
-@huey.task(retries=10, retry_delay=600)
+@huey.task(retries=10, retry_delay=5)
 def send_email_task(receiver_email, subject, text):
     sender_email = os.getenv("MY_SENDER_EMAIL")  # Your website's official email address
     api_key = os.getenv('SENDGRID_API_KEY')
