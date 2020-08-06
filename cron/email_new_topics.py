@@ -33,9 +33,9 @@ def new_topics_email():
     users = db.query(User).all()  # get all users from the database
 
     for user in users:
-        if user.email_address:  # if user has email address, send her/him an email
+        if user.email:  # if user has email address, send her/him an email
             send_email(
-                receiver_email=user.email_address,
+                receiver_email=user.email,
                 subject="See new topics at Ninja Tech Forum",
                 text=message
             )
