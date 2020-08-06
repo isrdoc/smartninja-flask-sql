@@ -4,3 +4,4 @@ smartninja-redis
 gunicorn
 requests
 huey
+psycopg2
