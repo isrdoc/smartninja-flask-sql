@@ -1,6 +1,8 @@
 from flask import Flask, render_template
 
-from models.settings import db
+from models.settings import init_db
+db = init_db()
+
 from models.topic import Topic
 
 from handlers.auth import auth_handlers

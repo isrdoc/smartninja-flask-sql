@@ -1,6 +1,8 @@
 import datetime
 
-from models.settings import db
+from models.settings import init_db
+db = init_db()
+
 from models.topic import Topic
 from models.user import User
 
